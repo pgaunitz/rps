@@ -2,24 +2,27 @@ const cpuChocie = () => {
   let choice = [Math.floor(Math.random() * 3)];
   return choice;
 };
+const gameMatrix = (i,j) => {
+  let matrix = [
+    [0, -1, 1],
+    [1, 0, -1],
+    [-1, 1, 0]
+  ];
+  return matrix[i][j]
+}
 
-let gameMatrix = [
-  [0, -1, 1],
-  [1, 0, -1],
-  [-1, 1, 0]
-];
 
 let rpsMatrix = ["Rock", "Paper", "Scissors"];
 
-const translateMove = (player, cpu) => {
-  return [rpsMatrix[player], rpsMatrix[cpu]];
+const translateMove = (number) => {
+  return rpsMatrix[number] ;
 };
 
 const evalGame = (playerChoice, cpuhand) => {
   let result;
-  if (gameMatrix[playerChoice][0] === gameMatrix[0][cpuhand]) {
+  if (gameMatrix(playerChoice,cpuhand) == 0) {
     result = "It's a draw!";
-  } else if (gameMatrix[playerChoice][0] > gameMatrix[0][cpuhand]) {
+  } else if (gameMatrix(playerChoice,cpuhand)  == 1) {
     result = "You win!";
   } else {
     result = "You lose!";

@@ -9,8 +9,7 @@ class App extends Component {
   };
   handleButtonClick(event) {
     debugger
-    let playerChoice = 1;
-    let playerhoice = event.target.number;
+    let playerChoice = event.target.value;
     
     let computerChoice = cpuChocie();
     this.setState({
@@ -25,24 +24,30 @@ class App extends Component {
       <>
         <h1 id="game-title">Rock Paper Scissors Game</h1>
 
+
         <button
-          id="rock-button" number="0"
+          id="rock-button" 
           onClick={event => this.handleButtonClick(event)}
+          value="0"
         >
           Rock
         </button>
         <button
-          id="paper-button" number="1"
+          id="paper-button" value="1"
           onClick={event => this.handleButtonClick(event)}
         >
           Paper
         </button>
         <button
-          id="scissors-button" number="2"
+          id="scissors-button" value="2"
           onClick={event => this.handleButtonClick(event)}
         >
           Scissors
         </button>
+        <>
+        <h1>{`${translateMove(this.state.playerChoice)} VS ${translateMove(this.state.computerChoice)} `} </h1>
+        <h1>{this.state.results}</h1>
+        </>
       </>
     );
   }
