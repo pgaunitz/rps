@@ -7,17 +7,23 @@ describe('User can see all the elements on page', () => {
         cy.get('#game-title').should('contain', 'Rock Paper Scissors Game')
     })
 
-    // it('Displays a rock, paper, scissor buttons', () => {
-    //     cy.get('#rock').should('exist');
-    //     cy.get('#paper').should('exist');
-    //     cy.get('#scissors').should('exist');
-    // })
+    
     it('Can Click the buttons', () => {
         cy.get('button#rock-button').click();
         cy.get('button#paper-button').click();
         cy.get('button#scissors-button').click();
-        // cy.get('button#playagain-button').click();
+        
     });
+
+    describe('User can play game', () => {
+        before(() => {
+            cy.visit('/');
+            cy.get('button#rock-button').clock();
+
+        })
+        it
+    })
+    
 
 
    
