@@ -19,16 +19,18 @@ const translateMove = number => {
   return rpsMatrix[number];
 };
 
-const evalGame = (playerChoice, cpuhand) => {
+const evalGame = (playerChoice, cpuhand, playerScore, cpuScore) => {
   let result;
   if (gameMatrix(playerChoice, cpuhand) == 0) {
     result = "It's a draw!";
   } else if (gameMatrix(playerChoice, cpuhand) == 1) {
     result = "You win!";
+    playerScore++
   } else {
     result = "You lose!";
+    cpuScore++
   }
-  return result;
+  return [result, playerScore, cpuScore];
 };
 
 export { cpuChocie, evalGame, translateMove };

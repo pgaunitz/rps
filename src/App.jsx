@@ -13,25 +13,36 @@ class App extends Component {
     results: "",
     playerW: "",
     computerW: "",
-    playerImage: user ,
-    computerImage: chip 
+    playerImage: user,
+    computerImage: chip,
+    playerScore: 0,
+    cpuScore: 0,
   };
 
-  
   handleButtonClick(event) {
-    let images = [Rock, Paper, Scissors]
+    let images = [Rock, Paper, Scissors];
+    let playerScore = this.state.playerScore;
+    let cpuScore = this.state.cpuScore;
     let playerChoice = event.target.value;
     let playerW = translateMove(playerChoice);
     let computerChoice = cpuChocie();
     let computerW = translateMove(computerChoice);
+    let gameResult = evalGame(
+      playerChoice,
+      computerChoice,
+      playerScore,
+      cpuScore
+    );
     this.setState({
       playerChoice: playerChoice,
       computerChoice: computerChoice,
-      results: evalGame(playerChoice, computerChoice),
+      results: gameResult[0],
       playerW: playerW,
       computerW: computerW,
       playerImage: images[playerChoice],
-      computerImage: images[computerChoice]
+      computerImage: images[computerChoice],
+      playerScore: gameResult[1],
+      cpuScore: gameResult[2],
     });
   }
 
@@ -46,7 +57,10 @@ class App extends Component {
             <div className="column">
               <div className="ui fluid card">
                 <div className="image">
-                <img src={this.state.playerImage} /> 
+                  <img src={this.state.playerImage} />
+                  <h2 className="ui center aligned header">
+                    Your score: {this.state.playerScore}
+                  </h2>
                   <h2 className="ui center aligned header">
                     {this.state.playerW}
                   </h2>
@@ -67,6 +81,9 @@ class App extends Component {
               <div className="ui fluid card">
                 <div className="image">
                   <img src={this.state.computerImage} />
+                  <h2 className="ui center aligned header">
+                    Computer Score: {this.state.cpuScore}
+                  </h2>
                   <h2 className="ui center aligned header">
                     {this.state.computerW}
                   </h2>
