@@ -1,8 +1,4 @@
-import React from "react";
-import rock from "./images/rock.svg"
-import paper from "./images/paper.svg"
-import scissors from "./images/scissors.svg"
-import { render } from "enzyme";
+
 
 const cpuChocie = () => {
   let choice = [Math.floor(Math.random() * 3)];
@@ -16,7 +12,6 @@ const gameMatrix = (i, j) => {
   ];
   return matrix[i][j];
 };
-
 
 let rpsMatrix = ["Rock", "Paper", "Scissors"];
 

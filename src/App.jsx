@@ -3,17 +3,23 @@ import { cpuChocie, evalGame, translateMove } from "./Gamelogic";
 import user from "./images/user.svg";
 import vs from "./images/videogame.svg";
 import chip from "./images/chip.svg";
+import Rock from "./images/rock.svg";
+import Paper from "./images/paper.svg";
+import Scissors from "./images/scissors.svg";
 class App extends Component {
   state = {
     playerChoice: "",
     computerChoice: "",
     results: "",
     playerW: "",
-    computerW: ""
+    computerW: "",
+    playerImage: user ,
+    computerImage: chip 
   };
 
+  
   handleButtonClick(event) {
-    debugger;
+    let images = [Rock, Paper, Scissors]
     let playerChoice = event.target.value;
     let playerW = translateMove(playerChoice);
     let computerChoice = cpuChocie();
@@ -23,7 +29,9 @@ class App extends Component {
       computerChoice: computerChoice,
       results: evalGame(playerChoice, computerChoice),
       playerW: playerW,
-      computerW: computerW
+      computerW: computerW,
+      playerImage: images[playerChoice],
+      computerImage: images[computerChoice]
     });
   }
 
@@ -38,7 +46,7 @@ class App extends Component {
             <div className="column">
               <div className="ui fluid card">
                 <div className="image">
-                  <img src={user} />
+                <img src={this.state.playerImage} /> 
                   <h2 className="ui center aligned header">
                     {this.state.playerW}
                   </h2>
@@ -49,14 +57,16 @@ class App extends Component {
               <div className="ui fluid card">
                 <div className="image">
                   <img src={vs} />
-                  <h1 id="result" className="ui center aligned header">{this.state.results}</h1>
+                  <h1 id="result" className="ui center aligned header">
+                    {this.state.results}
+                  </h1>
                 </div>
               </div>
             </div>
             <div className="column">
               <div className="ui fluid card">
                 <div className="image">
-                  <img src={chip} />
+                  <img src={this.state.computerImage} />
                   <h2 className="ui center aligned header">
                     {this.state.computerW}
                   </h2>
@@ -64,15 +74,13 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <h2 className="ui center aligned header">
-                     
-                  </h2>
+          <h2 className="ui center aligned header"></h2>
           <div className="ui center aligned grid">
             <div className="big ui buttons">
               <button
                 className="ui black button"
                 id="rock-button"
-                onClick={event => this.handleButtonClick(event)}
+                onClick={(event) => this.handleButtonClick(event)}
                 value="0"
               >
                 Rock
@@ -81,7 +89,7 @@ class App extends Component {
                 className="ui black button"
                 id="paper-button"
                 value="1"
-                onClick={event => this.handleButtonClick(event)}
+                onClick={(event) => this.handleButtonClick(event)}
               >
                 Paper
               </button>
@@ -89,7 +97,7 @@ class App extends Component {
                 className="ui black button"
                 id="scissors-button"
                 value="2"
-                onClick={event => this.handleButtonClick(event)}
+                onClick={(event) => this.handleButtonClick(event)}
               >
                 Scissors
               </button>
