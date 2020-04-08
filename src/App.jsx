@@ -6,6 +6,7 @@ import chip from "./images/chip.svg";
 import Rock from "./images/rock.svg";
 import Paper from "./images/paper.svg";
 import Scissors from "./images/scissors.svg";
+import { Button, Header, Image, ButtonGroup } from "semantic-ui-react";
 class App extends Component {
   state = {
     playerChoice: "",
@@ -50,75 +51,76 @@ class App extends Component {
     return (
       <>
         <div className="ui main container">
-          <h1 id="game-title" className="ui center aligned header">
+          <Header as='h1' textAlign='center'>
             Rock Paper Scissors Game
-          </h1>
+          </Header>
           <div className="ui three column grid">
             <div className="column">
               <div className="ui fluid card">
-                <div className="image">
+                <Image >
                   <img src={this.state.playerImage} />
-                  <h2 className="ui center aligned header">
+                  <Header as='h2' textAlign='center'>
                     Your score: {this.state.playerScore}
-                  </h2>
-                  <h2 className="ui center aligned header">
+                  </Header>
+                  <Header as='h2' textAlign='center'>
                     {this.state.playerW}
-                  </h2>
-                </div>
+                  </Header>
+                </Image>
               </div>
             </div>
             <div className="column">
               <div className="ui fluid card">
-                <div className="image">
+                <Image>
                   <img src={vs} />
-                  <h1 id="result" className="ui center aligned header">
+                  <Header as='h1' textAlign='center'>
                     {this.state.results}
-                  </h1>
-                </div>
+                  </Header>
+                </Image>
               </div>
             </div>
             <div className="column">
               <div className="ui fluid card">
-                <div className="image">
+                <Image>
                   <img src={this.state.computerImage} />
-                  <h2 className="ui center aligned header">
+                  <Header as='h2' textAlign='center'>
                     Computer Score: {this.state.cpuScore}
-                  </h2>
-                  <h2 className="ui center aligned header">
+                  </Header>
+                  <Header as='h2' textAlign='center'>
                     {this.state.computerW}
-                  </h2>
-                </div>
+                  </Header>
+                </Image>
               </div>
             </div>
           </div>
-          <h2 className="ui center aligned header"></h2>
+
           <div className="ui center aligned grid">
-            <div className="big ui buttons">
-              <button
-                className="ui black button"
+            <ButtonGroup size='huge'>
+              <Button
+                color="orange"
                 id="rock-button"
                 onClick={(event) => this.handleButtonClick(event)}
                 value="0"
               >
                 Rock
-              </button>
-              <button
-                className="ui black button"
+              </Button>
+
+              <Button
+                color="orange"
                 id="paper-button"
                 value="1"
                 onClick={(event) => this.handleButtonClick(event)}
               >
                 Paper
-              </button>
-              <button
-                className="ui black button"
+              </Button>
+              <Button
+                color="orange"
                 id="scissors-button"
                 value="2"
                 onClick={(event) => this.handleButtonClick(event)}
               >
                 Scissors
-              </button>
-            </div>
+              </Button>
+            </ButtonGroup>
           </div>
         </div>
       </>
