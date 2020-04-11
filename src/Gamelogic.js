@@ -1,5 +1,3 @@
-
-
 const cpuChocie = () => {
   let choice = [Math.floor(Math.random() * 3)];
   return choice;
@@ -25,10 +23,10 @@ const evalGame = (playerChoice, cpuhand, playerScore, cpuScore) => {
     result = "It's a draw!";
   } else if (gameMatrix(playerChoice, cpuhand) === 1) {
     result = "You win!";
-    playerScore++
+    playerScore++;
   } else {
     result = "You lose!";
-    cpuScore++
+    cpuScore++;
   }
   return [result, playerScore, cpuScore];
 };

@@ -6,7 +6,16 @@ import chip from "./images/chip.svg";
 import Rock from "./images/rock.svg";
 import Paper from "./images/paper.svg";
 import Scissors from "./images/scissors.svg";
-import { Button, Header, Image, ButtonGroup } from "semantic-ui-react";
+import {
+  Button,
+  Header,
+  Image,
+  ButtonGroup,
+  Container,
+  Grid,
+  Card
+} from "semantic-ui-react";
+
 class App extends Component {
   state = {
     playerChoice: "",
@@ -17,7 +26,7 @@ class App extends Component {
     playerImage: user,
     computerImage: chip,
     playerScore: 0,
-    cpuScore: 0,
+    cpuScore: 0
   };
 
   handleButtonClick(event) {
@@ -38,62 +47,62 @@ class App extends Component {
       playerImage: images[event.target.value],
       computerImage: images[computerChoice],
       playerScore: gameResult[1],
-      cpuScore: gameResult[2],
+      cpuScore: gameResult[2]
     });
   }
 
   render() {
     return (
       <>
-        <div className="ui main container">
-          <Header as='h1' textAlign='center'>
+        <Container>
+          <Header as="h1" textAlign="center">
             Rock Paper Scissors Game
           </Header>
-          <div className="ui three column grid">
-            <div className="column">
-              <div className="ui fluid card">
-                <Image >
-                  <img src={this.state.playerImage} />
-                  <Header as='h2' textAlign='center'>
+          <Grid columns="three">
+            <Grid.Column>
+              <Card>
+                <Image>
+                  <Image src={this.state.playerImage} alt="player" />
+                  <Header as="h2" textAlign="center">
                     Your score: {this.state.playerScore}
                   </Header>
-                  <Header as='h2' textAlign='center'>
+                  <Header as="h2" textAlign="center">
                     {this.state.playerW}
                   </Header>
                 </Image>
-              </div>
-            </div>
-            <div className="column">
-              <div className="ui fluid card">
+              </Card>
+            </Grid.Column>
+            <Grid.Column>
+              <Card>
                 <Image>
-                  <img src={vs} />
-                  <Header as='h1' textAlign='center'>
+                  <Image src={vs} alt="vs" />
+                  <Header as="h1" textAlign="center">
                     {this.state.results}
                   </Header>
                 </Image>
-              </div>
-            </div>
-            <div className="column">
-              <div className="ui fluid card">
+              </Card>
+            </Grid.Column>
+            <Grid.Column>
+              <Card>
                 <Image>
-                  <img src={this.state.computerImage} />
-                  <Header as='h2' textAlign='center'>
+                  <Image src={this.state.computerImage} alt="cpu" />
+                  <Header as="h2" textAlign="center">
                     Computer Score: {this.state.cpuScore}
                   </Header>
-                  <Header as='h2' textAlign='center'>
+                  <Header as="h2" textAlign="center">
                     {this.state.computerW}
                   </Header>
                 </Image>
-              </div>
-            </div>
-          </div>
+              </Card>
+            </Grid.Column>
+          </Grid>
 
-          <div className="ui center aligned grid">
-            <ButtonGroup size='huge'>
+          <Grid centered>
+            <ButtonGroup size="huge">
               <Button
                 color="orange"
                 id="rock-button"
-                onClick={(event) => this.handleButtonClick(event)}
+                onClick={event => this.handleButtonClick(event)}
                 value="0"
               >
                 Rock
@@ -103,7 +112,7 @@ class App extends Component {
                 color="orange"
                 id="paper-button"
                 value="1"
-                onClick={(event) => this.handleButtonClick(event)}
+                onClick={event => this.handleButtonClick(event)}
               >
                 Paper
               </Button>
@@ -111,13 +120,13 @@ class App extends Component {
                 color="orange"
                 id="scissors-button"
                 value="2"
-                onClick={(event) => this.handleButtonClick(event)}
+                onClick={event => this.handleButtonClick(event)}
               >
                 Scissors
               </Button>
             </ButtonGroup>
-          </div>
-        </div>
+          </Grid>
+        </Container>
       </>
     );
   }
