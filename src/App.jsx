@@ -22,25 +22,20 @@ class App extends Component {
 
   handleButtonClick(event) {
     let images = [Rock, Paper, Scissors];
-    let playerScore = this.state.playerScore;
-    let cpuScore = this.state.cpuScore;
-    let playerChoice = event.target.value;
-    let playerW = translateMove(playerChoice);
     let computerChoice = cpuChocie();
-    let computerW = translateMove(computerChoice);
     let gameResult = evalGame(
-      playerChoice,
+      event.target.value,
       computerChoice,
-      playerScore,
-      cpuScore
+      this.state.playerScore,
+      this.state.cpuScore
     );
     this.setState({
-      playerChoice: playerChoice,
+      playerChoice: event.target.value,
       computerChoice: computerChoice,
       results: gameResult[0],
-      playerW: playerW,
-      computerW: computerW,
-      playerImage: images[playerChoice],
+      playerW: translateMove(event.target.value),
+      computerW: translateMove(computerChoice),
+      playerImage: images[event.target.value],
       computerImage: images[computerChoice],
       playerScore: gameResult[1],
       cpuScore: gameResult[2],

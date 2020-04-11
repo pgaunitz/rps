@@ -21,9 +21,9 @@ const translateMove = number => {
 
 const evalGame = (playerChoice, cpuhand, playerScore, cpuScore) => {
   let result;
-  if (gameMatrix(playerChoice, cpuhand) == 0) {
+  if (gameMatrix(playerChoice, cpuhand) === 0) {
     result = "It's a draw!";
-  } else if (gameMatrix(playerChoice, cpuhand) == 1) {
+  } else if (gameMatrix(playerChoice, cpuhand) === 1) {
     result = "You win!";
     playerScore++
   } else {
