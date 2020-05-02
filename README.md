@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c806a845-8947-4c78-9746-c13f83fd05c6/deploy-status)](https://app.netlify.com/sites/pg-portfolio/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ba34c156-e6ba-4cbd-907f-10f4625dcc01/deploy-status)](https://app.netlify.com/sites/pg-rps/deploys)
 ## RPS Challenge 
 
 ### Authors
@@ -7,7 +7,7 @@
 ### Built with  
 **Front End:** React v.16.12.0, | CSS   
 **Testing frameworks:** Cypress 
-**Deployed at:** [Netlify](https://pg-portfolio.netlify.app/)
+**Deployed at:** [Netlify](https://pg-rps.netlify.app/)
 
 ### The code
 This application is a digital version of the traditional game Rock, Paper, Scissors. The player can play against the computer that randomly chooses a weapon and either the player or the computer gets score for each win. 
