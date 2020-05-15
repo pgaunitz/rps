@@ -76,7 +76,7 @@ class App extends Component {
               <Card>
                 <Image>
                   <Image src={vs} alt="vs" />
-                  <Header as="h1" textAlign="center">
+                  <Header id="results" as="h1" textAlign="center">
                     {this.state.results}
                   </Header>
                 </Image>
